@@ -14,6 +14,7 @@ return array(
     'WindowsAzure\\' => array($vendorDir . '/microsoft/windowsazure/src'),
     'TrueBV\\' => array($vendorDir . '/true/punycode/src'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Storage\\' => array($baseDir . '/Storage'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'MicrosoftAzure\\Storage\\' => array($vendorDir . '/microsoft/azure-storage/src'),
@@ -22,5 +23,4 @@ return array(
     'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
-    'Azure\\' => array($baseDir . '/Azure'),
 );

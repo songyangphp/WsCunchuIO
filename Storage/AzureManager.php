@@ -6,7 +6,7 @@
  * Date: 2017/4/17
  * Time: 上午10:30
  */
-namespace Azure;
+namespace Storage;
 use WindowsAzure\Common\ServicesBuilder;
 
 class AzureManager

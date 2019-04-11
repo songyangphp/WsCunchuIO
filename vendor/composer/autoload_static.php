@@ -34,6 +34,7 @@ class ComposerStaticInit274362985e9f38af7d5aa3eb5c0b6465
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Storage\\' => 8,
         ),
         'P' => 
         array (
@@ -57,10 +58,6 @@ class ComposerStaticInit274362985e9f38af7d5aa3eb5c0b6465
         'F' => 
         array (
             'Firebase\\JWT\\' => 13,
-        ),
-        'A' => 
-        array (
-            'Azure\\' => 6,
         ),
     );
 
@@ -97,6 +94,10 @@ class ComposerStaticInit274362985e9f38af7d5aa3eb5c0b6465
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
+        'Storage\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Storage',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
@@ -128,10 +129,6 @@ class ComposerStaticInit274362985e9f38af7d5aa3eb5c0b6465
         'Firebase\\JWT\\' => 
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
-        ),
-        'Azure\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/Azure',
         ),
     );
 

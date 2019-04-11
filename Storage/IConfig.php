@@ -6,7 +6,7 @@
  * Time: 9:17
  */
 
-namespace Azure;
+namespace Storage;
 
 
 interface IConfig

@@ -11,7 +11,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Azure\\": "Azure/"
+      "Storage\\": "Storage/"
     }
   },
   "require": {
