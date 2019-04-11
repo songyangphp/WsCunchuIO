@@ -50,7 +50,7 @@ class App
 
         foreach ($return as $k => $v){
             if(empty($v)){
-                exit($k." not null!");
+                exit("CunchuIO config: ".$k." is null!");
             }
         }
 
