@@ -15,6 +15,10 @@ class ComposerStaticInit274362985e9f38af7d5aa3eb5c0b6465
     );
 
     public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'storage\\' => 8,
+        ),
         'Z' => 
         array (
             'Zend\\Validator\\' => 15,
@@ -34,7 +38,6 @@ class ComposerStaticInit274362985e9f38af7d5aa3eb5c0b6465
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
-            'Storage\\' => 8,
         ),
         'P' => 
         array (
@@ -62,6 +65,10 @@ class ComposerStaticInit274362985e9f38af7d5aa3eb5c0b6465
     );
 
     public static $prefixDirsPsr4 = array (
+        'storage\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/storage',
+        ),
         'Zend\\Validator\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-validator/src',
@@ -93,10 +100,6 @@ class ComposerStaticInit274362985e9f38af7d5aa3eb5c0b6465
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
-        ),
-        'Storage\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/Storage',
         ),
         'Psr\\Http\\Message\\' => 
         array (

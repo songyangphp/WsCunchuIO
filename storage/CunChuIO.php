@@ -7,7 +7,7 @@
  * Time: 下午5:32
  */
 
-namespace Storage;
+namespace storage;
 use WindowsAzure\Common\ServiceException;
 use MicrosoftAzure\Storage\Blob\Models\CreateBlobOptions;
 

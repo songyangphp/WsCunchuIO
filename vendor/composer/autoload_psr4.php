@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'storage\\' => array($baseDir . '/storage'),
     'Zend\\Validator\\' => array($vendorDir . '/zendframework/zend-validator/src'),
     'Zend\\Stdlib\\' => array($vendorDir . '/zendframework/zend-stdlib/src'),
     'Zend\\Mime\\' => array($vendorDir . '/zendframework/zend-mime/src'),
@@ -14,7 +15,6 @@ return array(
     'WindowsAzure\\' => array($vendorDir . '/microsoft/windowsazure/src'),
     'TrueBV\\' => array($vendorDir . '/true/punycode/src'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
-    'Storage\\' => array($baseDir . '/Storage'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'MicrosoftAzure\\Storage\\' => array($vendorDir . '/microsoft/azure-storage/src'),

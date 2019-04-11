@@ -6,7 +6,7 @@
  * Time: 9:17
  */
 
-namespace Storage;
+namespace storage;
 
 
 interface IStorageConfig
