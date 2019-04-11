@@ -11,12 +11,19 @@ require_once __DIR__ . "/AzureManager.php";
 
 class CunChuIO
 {
-    public static $storename = "wszxstore";
-    public static $rongqi = "zhongcai";
+    public static $storename;
+    public static $rongqi;
 
-    public static function getImageUrlPre()
+
+    /*public static function getImageUrlPre()
     {
         return IMG_SITE_ROOT;
+    }*/
+
+    public static function getConfig($config)
+    {
+        self::$storename = $config['storename'];
+        self::$rongqi = $config['rongqi'];
     }
 
     public static function uploadImageFile($d_pathtofilename, $o_file, $contenttype = null, $recalImage = array(1024, 1024))

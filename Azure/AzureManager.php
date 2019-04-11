@@ -12,9 +12,17 @@ use MicrosoftAzure\Storage\Common\ServiceException;
 
 class AzureManager
 {
-    static $storage_list = array("ddlestore","wszxstore");
-    static $accountname = "wszxstore";
-    static $accountkey = "LgYWaS8nxag0JVYzCocB+cgUvC2Dg+6g9xfwTSbSmSb13c7EjRTjw+7uz4krW1cWjunWxdhQCeGGplay95/Oyg==";
+    public static $storage_list;
+    public static $accountname ;
+    public static $accountkey;
+
+    public static function getConfig($config)
+    {
+        self::$storage_list = $config['storage_list'];
+        self::$accountname = $config['accountname'];
+        self::$accountkey = $config['accountkey'];
+    }
+
     public static function getBlobConnectionString($storagename)
     {
         if(!self::isRealStoreage($storagename))
