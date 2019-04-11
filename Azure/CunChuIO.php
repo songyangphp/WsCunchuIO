@@ -17,11 +17,6 @@ class CunChuIO
     public static $rongqi;
 
 
-    /*public static function getImageUrlPre()
-    {
-        return IMG_SITE_ROOT;
-    }*/
-
     public static function getConfig($config)
     {
         self::$storename = $config['storename'];
@@ -30,8 +25,6 @@ class CunChuIO
 
     public static function uploadImageFile($d_pathtofilename, $o_file, $contenttype = null, $recalImage = array(1024, 1024))
     {
-
-
         if (!$recalImage) {
             $recalImage = array(1024, 1024);
         }
@@ -57,35 +50,22 @@ class CunChuIO
         $file_ext = strtolower($tmp_arr[count($tmp_arr) - 1]);
 
         return self::uploadImageContent($d_pathtofilename, $content, $contenttype ? $contenttype : $file_ext);
-
-
     }
 
     public static function uploadImageContent($d_pathtofilename, $content, $contenttype)
     {
-//        echo "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>";
-//echo 1;
         $d_pathtofilename = strtolower($d_pathtofilename);
         $index = strpos($d_pathtofilename, "uploads/");
 
         if ($index !== false && $index >= 0 && $index < 4) {
             $d_pathtofilename = substr($d_pathtofilename, $index + 8);
         }
-//        echo "55555555555555555555";
-//exit;
+
         $blobRestProxy = AzureManager::getBlobRestProxy(self::$storename);
-//        dump($blobRestProxy);
         $blob_option = new CreateBlobOptions();
-
-
         $blob_option->setContentType(self::getContentTypeFromFileExt($contenttype));
-//        dump($contenttype);
-
-
         try {
-            //Upload blob
             return $blobRestProxy->createBlockBlob(self::$rongqi, "uploads/".$d_pathtofilename, $content, $blob_option);
-
         } catch (ServiceException $e) {
             return false;
         }
@@ -96,33 +76,16 @@ class CunChuIO
         $d_pathtofilename = strtolower($d_pathtofilename);
         $blobRestProxy = AzureManager::getBlobRestProxy(self::$storename);
         $blob_option = new  CreateBlobOptions();
-
         $blob_option->setContentType(self::getContentTypeFromFileExt($d_pathtofilename));
-
-        /*var_dump(self::$storename);
-        var_dump(self::$rongqi);
-        die;*/
-
-        /*var_dump($blob_option);die;*/
-
         try {
-        var_dump(self::$rongqi);
-        var_dump($contianer."/".$d_pathtofilename);
-        var_dump($content);
-        var_dump($blob_option);
-        die;
-
             return $blobRestProxy->createBlockBlob(self::$rongqi, $contianer."/".$d_pathtofilename, $content, $blob_option);
-
         } catch (ServiceException $e) {
-
             return false;
         }
     }
 
     public static function isImage($d_name)
     {
-
         $file_ext_tmp = explode(".", strtolower($d_name));
         $ext = $file_ext_tmp[count($file_ext_tmp) - 1];
         $arr = array(
@@ -130,7 +93,6 @@ class CunChuIO
             "png",
             "jpg",
             "jpeg",
-
         );
         if (in_array($ext, $arr)) {
             return true;
@@ -160,14 +122,11 @@ class CunChuIO
     public static function getString($pathtofilename)
     {
         $blobRestProxy = AzureManager::getBlobRestProxy(self::$storename);
-
-
         try {
             // Get blob.
             $blob = $blobRestProxy->getBlob(self::$rongqi, $pathtofilename);
             return $blob->getContentStream();
         } catch (ServiceException $e) {
-
             return "";
         }
     }
@@ -185,21 +144,14 @@ class CunChuIO
             return "";
         }
     }
+
     public static function getBolbTmpFile($pathtofilename,$name='')
     {
-        if(I('get.t')==1){
-            dump($pathtofilename);
-            echo "<br>";
-        }
         $blobRestProxy = AzureManager::getBlobRestProxy(self::$storename);
-
         try {
-
             $blob = $blobRestProxy->getBlob(self::$rongqi, $pathtofilename);
-
             $pathtofilename = str_replace("/","_",$pathtofilename);
             $pathtofilename = substr($pathtofilename,strlen("uploads/sign/gongzheng/")-strlen($pathtofilename));
-
             $tmpfile = NAS_WSZX_DIR."tmp/".$pathtofilename;
 
             file_put_contents($tmpfile, $blob->getContentStream());
@@ -220,17 +172,11 @@ class CunChuIO
 
     public static function scaleImageFileToBlob($file, $recalImage)
     {//修改大小
-
-
         $max_width = $recalImage[0];
         $max_height = $recalImage[1];
-
         list($width, $height, $image_type) = getimagesize($file);
-
-
         $x_ratio = $max_width / $width;
         $y_ratio = $max_height / $height;
-
         if (($width <= $max_width) && ($height <= $max_height)) {
 //            $tn_width = $width;
 //            $tn_height = $height;
@@ -297,8 +243,4 @@ class CunChuIO
 
         return $final_image;
     }
-
-
 }
-
-//CunChuIO::uploadImageFile("avatar_test.png","2.png","png");

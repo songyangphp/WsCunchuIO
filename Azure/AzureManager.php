@@ -8,7 +8,6 @@
  */
 namespace Azure;
 use WindowsAzure\Common\ServicesBuilder;
-use WindowsAzure\Common\ServiceException;
 
 class AzureManager
 {
@@ -47,5 +46,4 @@ class AzureManager
     {
         return in_array($storagename, self::$storage_list);
     }
-
 }

@@ -55,5 +55,6 @@ class App
         }
 
         CunChuIO::getConfig($return);
+        AzureManager::getConfig($return);
     }
 }
