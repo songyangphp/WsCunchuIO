@@ -2,6 +2,6 @@
 <br>
 微软云存储SDK
 <hr>
-调用CunChuIO类中的upload中的uploadContent方法
+先初始化Iconfig类
 <br>
-CunChuIO::uploadContent();即可
+然后调用CunChuIO类中的upload中的uploadContent方法即可
