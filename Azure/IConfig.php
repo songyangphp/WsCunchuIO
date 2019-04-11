@@ -48,6 +48,12 @@ class App
             "rongqi" => $config->get_Rongqi(),
         ];
 
+        foreach ($return as $k => $v){
+            if(empty($v)){
+                exit($k." not null!");
+            }
+        }
+
         CunChuIO::getConfig($return);
     }
 }
