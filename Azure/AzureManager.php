@@ -8,7 +8,7 @@
  */
 namespace Azure;
 use WindowsAzure\Common\ServicesBuilder;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use WindowsAzure\Common\ServiceException;
 
 class AzureManager
 {

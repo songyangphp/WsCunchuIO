@@ -4,6 +4,28 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/Azure" isTestSource="false" packagePrefix="Azure\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/container-interop/container-interop" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/firebase/php-jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/microsoft/azure-storage" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/microsoft/windowsazure" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pear/console_getopt" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pear/mail_mime" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pear/net_url2" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pear/pear-core-minimal" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/pear/pear_exception" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/true/punycode" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-loader" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-mail" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-mime" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-stdlib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-validator" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

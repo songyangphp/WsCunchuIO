@@ -15,6 +15,7 @@
     }
   },
   "require": {
-    "php": ">7.0.0"
+    "microsoft/azure-storage": "^0.19.1",
+    "microsoft/windowsazure": "^0.5.7"
   }
 }

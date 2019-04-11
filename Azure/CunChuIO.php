@@ -6,8 +6,10 @@
  * Date: 2017/4/15
  * Time: 下午5:32
  */
+
 namespace Azure;
-require_once __DIR__ . "/AzureManager.php";
+use WindowsAzure\Common\ServiceException;
+use MicrosoftAzure\Storage\Blob\Models\CreateBlobOptions;
 
 class CunChuIO
 {
@@ -73,11 +75,12 @@ class CunChuIO
 //exit;
         $blobRestProxy = AzureManager::getBlobRestProxy(self::$storename);
 //        dump($blobRestProxy);
-        $blob_option = new \MicrosoftAzure\Storage\Blob\Models\CreateBlobOptions();
-//echo 2222;
+        $blob_option = new CreateBlobOptions();
+
 
         $blob_option->setContentType(self::getContentTypeFromFileExt($contenttype));
 //        dump($contenttype);
+
 
         try {
             //Upload blob
@@ -91,19 +94,28 @@ class CunChuIO
     public static function uploadContent($d_pathtofilename, $content, $contianer = "uploads")
     {
         $d_pathtofilename = strtolower($d_pathtofilename);
-
         $blobRestProxy = AzureManager::getBlobRestProxy(self::$storename);
-        $blob_option = new \MicrosoftAzure\Storage\Blob\Models\CreateBlobOptions();
-
+        $blob_option = new  CreateBlobOptions();
 
         $blob_option->setContentType(self::getContentTypeFromFileExt($d_pathtofilename));
-        //var_dump($contenttype);
+
+        /*var_dump(self::$storename);
+        var_dump(self::$rongqi);
+        die;*/
+
+        /*var_dump($blob_option);die;*/
 
         try {
-            //Upload blob
+        var_dump(self::$rongqi);
+        var_dump($contianer."/".$d_pathtofilename);
+        var_dump($content);
+        var_dump($blob_option);
+        die;
+
             return $blobRestProxy->createBlockBlob(self::$rongqi, $contianer."/".$d_pathtofilename, $content, $blob_option);
 
         } catch (ServiceException $e) {
+
             return false;
         }
     }
