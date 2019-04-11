@@ -36,7 +36,7 @@ class App
     public function run()
     {
         if(self::$config === null){
-            exit("need config!");
+            exit("CunchuIO need config!");
         }
 
         $config = new self::$config();
