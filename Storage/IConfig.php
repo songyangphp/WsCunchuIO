@@ -9,7 +9,7 @@
 namespace Storage;
 
 
-interface IConfig
+interface IStorageConfig
 {
     public function get_StorageList(): array ;
 
@@ -22,11 +22,11 @@ interface IConfig
     public function get_Rongqi() : string ;
 }
 
-class App
+class StorageApp
 {
     private static $config = null;
 
-    public function setConfig(IConfig $config)
+    public function setConfig(IStorageConfig $config)
     {
         self::$config = $config;
         return $this;
