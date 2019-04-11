@@ -78,6 +78,13 @@ class CunChuIO
         $blob_option = new  CreateBlobOptions();
         $blob_option->setContentType(self::getContentTypeFromFileExt($d_pathtofilename));
         try {
+            if($_GET['debug']){
+                var_dump(self::$rongqi);
+                var_dump($contianer."/".$d_pathtofilename);
+                var_dump($content);
+                var_dump($blob_option);
+                die;
+            }
             return $blobRestProxy->createBlockBlob(self::$rongqi, $contianer."/".$d_pathtofilename, $content, $blob_option);
         } catch (ServiceException $e) {
             return false;
