@@ -9,6 +9,7 @@
       "email": "475511896@qq.com"
     }
   ],
+
   "autoload": {
     "psr-4": {
       "storage\\": "storage/"
