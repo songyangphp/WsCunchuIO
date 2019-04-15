@@ -10,17 +10,24 @@
 namespace storage;
 use WindowsAzure\Common\ServiceException;
 use MicrosoftAzure\Storage\Blob\Models\CreateBlobOptions;
+use WindowsAzure\Common\ServicesBuilder;
 
 class CunChuIO
 {
     public static $storename;
     public static $rongqi;
+    public static $storage_list;
+    public static $accountname ;
+    public static $accountkey;
 
 
     public static function getConfig($config)
     {
         self::$storename = $config['storename'];
         self::$rongqi = $config['rongqi'];
+        self::$storage_list = $config['storage_list'];
+        self::$accountname = $config['accountname'];
+        self::$accountkey = $config['accountkey'];
     }
 
     public static function uploadImageFile($d_pathtofilename, $o_file, $contenttype = null, $recalImage = array(1024, 1024))
@@ -61,7 +68,7 @@ class CunChuIO
             $d_pathtofilename = substr($d_pathtofilename, $index + 8);
         }
 
-        $blobRestProxy = AzureManager::getBlobRestProxy(self::$storename);
+        $blobRestProxy = self::getBlobRestProxy(self::$storename);
         $blob_option = new CreateBlobOptions();
         $blob_option->setContentType(self::getContentTypeFromFileExt($contenttype));
         try {
@@ -74,7 +81,7 @@ class CunChuIO
     public static function uploadContent($d_pathtofilename, $content, $contianer = "uploads")
     {
         $d_pathtofilename = strtolower($d_pathtofilename);
-        $blobRestProxy = AzureManager::getBlobRestProxy(self::$storename);
+        $blobRestProxy = self::getBlobRestProxy(self::$storename);
         $blob_option = new  CreateBlobOptions();
         $blob_option->setContentType(self::getContentTypeFromFileExt($d_pathtofilename));
         try {
@@ -128,7 +135,7 @@ class CunChuIO
 
     public static function getString($pathtofilename)
     {
-        $blobRestProxy = AzureManager::getBlobRestProxy(self::$storename);
+        $blobRestProxy = self::getBlobRestProxy(self::$storename);
         try {
             // Get blob.
             $blob = $blobRestProxy->getBlob(self::$rongqi, $pathtofilename);
@@ -140,7 +147,7 @@ class CunChuIO
 
     public static function getContent($pathtofilename)
     {
-        $blobRestProxy = AzureManager::getBlobRestProxy(self::$storename);
+        $blobRestProxy = self::getBlobRestProxy(self::$storename);
 
         try {
             // Get blob.
@@ -154,7 +161,7 @@ class CunChuIO
 
     public static function getBolbTmpFile($pathtofilename,$name='')
     {
-        $blobRestProxy = AzureManager::getBlobRestProxy(self::$storename);
+        $blobRestProxy = self::getBlobRestProxy(self::$storename);
         try {
             $blob = $blobRestProxy->getBlob(self::$rongqi, $pathtofilename);
             $pathtofilename = str_replace("/","_",$pathtofilename);
@@ -174,6 +181,33 @@ class CunChuIO
         {
             unlink($tmpfile);
         }
+    }
+
+
+
+    public static function getBlobConnectionString($storagename)
+    {
+        if(!self::isRealStoreage($storagename))
+        {
+            return false;
+        }
+
+        return "BlobEndpoint=http://{$storagename}.blob.core.chinacloudapi.cn/;QueueEndpoint=http://{$storagename}.queue.core.chinacloudapi.cn/;TableEndpoint=http://{$storagename}.table.core.chinacloudapi.cn/;AccountName=" . self::$accountname . ";AccountKey=" . self::$accountkey;
+
+    }
+    public static function getBlobRestProxy($storagename)
+    {
+        if(! ($connectionString = self::getBlobConnectionString($storagename)))
+        {
+            return null;
+        }
+        return  ServicesBuilder::getInstance()->createBlobService($connectionString);
+    }
+
+
+    private static function isRealStoreage($storagename)
+    {
+        return in_array($storagename, self::$storage_list);
     }
 
 
