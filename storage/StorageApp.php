@@ -42,6 +42,5 @@ class StorageApp
         }
 
         CunChuIO::getConfig($return);
-        AzureManager::getConfig($return);
     }
 }
