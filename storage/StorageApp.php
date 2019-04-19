@@ -20,7 +20,7 @@ class StorageApp
     }
 
 
-    public function run()
+    public function init()
     {
         if(self::$config === null){
             exit("CunchuIO need config!");
