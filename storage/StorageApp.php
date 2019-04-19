@@ -19,7 +19,6 @@ class StorageApp
         return $this;
     }
 
-
     public function init()
     {
         if(self::$config === null){
