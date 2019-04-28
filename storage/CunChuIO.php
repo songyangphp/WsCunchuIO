@@ -23,6 +23,11 @@ class CunChuIO
 
     public static function getConfig($config)
     {
+        foreach ($config as $k => $v){
+            if(empty($v)){
+                exit("storage ". $k. " is null");
+            }
+        }
         self::$storename = $config['storename'];
         self::$rongqi = $config['rongqi'];
         self::$storage_list = $config['storage_list'];
