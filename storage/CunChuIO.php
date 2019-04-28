@@ -21,7 +21,7 @@ class CunChuIO
     public static $accountkey;
 
 
-    public static function getConfig($config)
+    public static function setConfig($config)
     {
         foreach ($config as $k => $v){
             if(empty($v)){
