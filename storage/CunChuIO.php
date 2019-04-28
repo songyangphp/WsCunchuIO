@@ -20,7 +20,6 @@ class CunChuIO
     public static $accountname ;
     public static $accountkey;
 
-
     public static function setConfig($config)
     {
         foreach ($config as $k => $v){
