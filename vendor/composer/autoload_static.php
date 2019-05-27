@@ -15,9 +15,9 @@ class ComposerStaticInit274362985e9f38af7d5aa3eb5c0b6465
     );
 
     public static $prefixLengthsPsr4 = array (
-        's' => 
+        'w' => 
         array (
-            'src\\' => 4,
+            'wslibs\\storage\\' => 15,
         ),
         'Z' => 
         array (
@@ -65,9 +65,9 @@ class ComposerStaticInit274362985e9f38af7d5aa3eb5c0b6465
     );
 
     public static $prefixDirsPsr4 = array (
-        'src\\' => 
+        'wslibs\\storage\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/storage',
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'Zend\\Validator\\' => 
         array (
