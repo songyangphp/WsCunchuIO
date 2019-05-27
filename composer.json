@@ -12,7 +12,7 @@
 
   "autoload": {
     "psr-4": {
-      "storage\\": "storage/"
+      "src\\": "storage/"
     }
   },
   "require": {
