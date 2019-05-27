@@ -1,17 +1,27 @@
-"# WsCunchuIO" 
-<br>
-微软云存储SDK
-<hr>
-初始化方法(全局有效):
-<br>
+## 微软云存储SDK
+
+*使用方法*
+
+1.初始化参数(全局有效)
+
+
+```php
 CunChuIO::getConfig(array(
-    "storage_list" => ,
-    "accountname" => ,
-    "accountkey" => ,
-    "storename" => ,
-    "rongqi" => ,
+    "storage_list" => '',
+    "accountname" => '',
+    "accountkey" => '',
+    "storename" => '',
+    "rongqi" => '',
 ));
-<br>
-使用方法:
-<br>
-CunChuIO::uploadContent("云端存储路径","要上传的文件(file_get_content('文件'))");
+```
+
+2.上传文件
+
+```php
+/*
+* 云端存储地址
+* 要上传至云端的文件二进制内容
+*/
+
+CunChuIO::uploadContent("/test/test.jpg","content");
+```
